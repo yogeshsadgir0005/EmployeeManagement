@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-legacy-cream: #FDFCF8;
+  --color-legacy-green: #142E29; 
+  --color-legacy-gold: #D4AF37;
+  --color-legacy-gold-light: #F3E5AB;
+  --color-legacy-card: #FFFFFF;
+  --color-legacy-border: #E5E7EB;
+  
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+
+  --shadow-premium: 0 20px 40px -10px rgba(20, 46, 41, 0.08);
+}
+
+body {
+  background-color: var(--color-legacy-cream);
+  color: var(--color-legacy-green);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden; /* Prevent scrollbar jumping during transitions */
+}
+
+/* --- THE EXPERT ANIMATION SUITE --- */
+
+/* 1. The "Page Load" Glide */
+@keyframes pageEnter {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-page-enter {
+  animation: pageEnter 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 2. The "Modal" Scale In (Pop without the bounce) */
+@keyframes modalEnter {
+  from { opacity: 0; transform: scale(0.96) translateY(10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.animate-modal-enter {
+  animation: modalEnter 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 3. The "Backdrop" Fade */
+@keyframes fadeOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-backdrop {
+  animation: fadeOverlay 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #E5E7EB; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #C5A059; }
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0,0,0,0.05);
+}
