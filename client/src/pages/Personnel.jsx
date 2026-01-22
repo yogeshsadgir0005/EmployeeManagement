@@ -14,7 +14,7 @@ const Personnel = () => {
 
   const fetchEmployees = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/employees');
+      const res = await axios.get('https://employeemanagement-8c1x.onrender.com/api/employees');
       setEmployees(res.data);
     } catch (err) { console.error(err); }
   };
@@ -32,15 +32,15 @@ const Personnel = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      if (isEditing) await axios.put(`http://localhost:5000/api/employees/${currentEmpId}`, formData);
-      else await axios.post('http://localhost:5000/api/employees', formData);
+      if (isEditing) await axios.put(`https://employeemanagement-8c1x.onrender.com/api/employees/${currentEmpId}`, formData);
+      else await axios.post('https://employeemanagement-8c1x.onrender.com/api/employees', formData);
       setShowModal(false); fetchEmployees();
     } catch (err) { alert("Operation failed."); }
   };
 
   const handleDelete = async (id, name) => {
     if(confirm(`Terminate ${name}?`)) {
-      await axios.delete(`http://localhost:5000/api/employees/${id}`);
+      await axios.delete(`https://employeemanagement-8c1x.onrender.com/api/employees/${id}`);
       fetchEmployees();
     }
   };
