@@ -35,7 +35,7 @@ const EmployeeDetails = () => {
 
   const fetchEmp = async () => {
     try {
-      const res = await axios.get(`http://localhost:5000/api/employees/${id}`);
+      const res = await axios.get(`https://employeemanagement-8c1x.onrender.com/api/employees/${id}`);
       setEmp(res.data);
       setEditProfileForm(res.data);
     } catch (err) { console.error(err); }
@@ -44,7 +44,7 @@ const EmployeeDetails = () => {
   const showToast = (msg, type = 'success') => setToast({ message: msg, type });
 
   const handleUpdateProfile = async () => {
-    await axios.put(`http://localhost:5000/api/employees/${id}`, editProfileForm);
+    await axios.put(`https://employeemanagement-8c1x.onrender.com/api/employees/${id}`, editProfileForm);
     setIsEditingProfile(false);
     fetchEmp();
     showToast('Profile updated successfully');
@@ -52,7 +52,7 @@ const EmployeeDetails = () => {
 
   const handleDeleteEmployee = async () => {
     if(confirm("Terminate this employee record permanently?")) {
-      await axios.delete(`http://localhost:5000/api/employees/${id}`);
+      await axios.delete(`https://employeemanagement-8c1x.onrender.com/api/employees/${id}`);
       navigate('/');
     }
   };
@@ -64,10 +64,10 @@ const EmployeeDetails = () => {
       if (type === 'reward') payload.dateGiven = new Date();
 
       if (editId) {
-        await axios.put(`http://localhost:5000/api/employees/${id}/${urlSuffix}/${editId}`, payload);
+        await axios.put(`https://employeemanagement-8c1x.onrender.com/api/employees/${id}/${urlSuffix}/${editId}`, payload);
         showToast('Record updated');
       } else {
-        await axios.post(`http://localhost:5000/api/employees/${id}/${urlSuffix}`, payload);
+        await axios.post(`https://employeemanagement-8c1x.onrender.com/api/employees/${id}/${urlSuffix}`, payload);
         showToast('New entry added');
       }
       setEditId(null);
@@ -88,7 +88,7 @@ const EmployeeDetails = () => {
 
   const deleteSubDoc = async (recordId, urlSuffix) => {
     if(confirm("Are you sure?")) {
-      await axios.delete(`http://localhost:5000/api/employees/${id}/${urlSuffix}/${recordId}`);
+      await axios.delete(`https://employeemanagement-8c1x.onrender.com/api/employees/${id}/${urlSuffix}/${recordId}`);
       fetchEmp();
       showToast('Record deleted');
     }
