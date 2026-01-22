@@ -22,7 +22,7 @@ const OtpVerify = () => {
     if (mode === 'signup') {
       // --- SIGNUP MODE ---
       try {
-        const res = await axios.post('http://localhost:5000/api/auth/verify-otp', { userId, otp });
+        const res = await axios.post('https://employeemanagement-8c1x.onrender.com/api/auth/verify-otp', { userId, otp });
         localStorage.setItem('userInfo', JSON.stringify(res.data)); // Login
         navigate('/'); // Go to Dashboard
       } catch (err) {
