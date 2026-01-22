@@ -1,4 +1,4 @@
-require('dotenv').config(); // <--- MUST BE THE VERY FIRST LINE
+require('dotenv').config(); 
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -7,7 +7,9 @@ const authRoutes = require('./routes/authRoutes');
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin : 'https://employee-management-six-woad.vercel.app/',
+  credentials: true }));
 app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/employees', require('./routes/employeeRoutes'));
