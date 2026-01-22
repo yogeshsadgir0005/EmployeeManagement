@@ -9,8 +9,8 @@ const ForgotPassword = () => {
   const sendOtp = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/forgot-password', { email });
-      // Navigate to OTP page in 'reset' mode
+      const res = await axios.post('https://employeemanagement-8c1x.onrender.com/api/auth/forgot-password', { email });
+      
       navigate('/verify-otp', { 
         state: { 
           userId: res.data.userId, 
