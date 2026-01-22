@@ -22,7 +22,7 @@ const ResetPassword = () => {
   const handleReset = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/auth/reset-password', { userId, otp, newPassword });
+      await axios.post('https://employeemanagement-8c1x.onrender.com/api/auth/reset-password', { userId, otp, newPassword });
       alert('Password Updated. Please Login.');
       navigate('/login');
     } catch (err) { 
