@@ -51,7 +51,7 @@ const Login = () => {
         </form>
 
         <div className="mt-6 flex justify-between text-xs text-gray-400">
-          <Link to="/signup" className="hover:text-legacy-gold transition">Request Access (Signup)</Link>
+         
           
           {/* --- THE FIX: Point to ForgotPassword, NOT ResetPassword --- */}
           <Link to="/forgot-password" className="hover:text-legacy-gold transition">Lost Credential?</Link>
